@@ -3,12 +3,13 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/Footer";
 import FormularioTarea from "./components/FormularioTarea";
+import TituloPrincipal from "./components/TituloPrincipal";
 
 function App() {
   return (
     <>
       <Container className="my-4 mainPage">
-        <h1 className="text-center">Lista de tareas</h1>
+        <TituloPrincipal/>
         <FormularioTarea></FormularioTarea>
       </Container>
       <Footer></Footer>
