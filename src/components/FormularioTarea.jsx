@@ -1,16 +1,21 @@
 import { useState } from "react";
 import ListaTareas from "./ListaTareas";
-import { Button, Form} from 'react-bootstrap';
+import { Button, Form } from "react-bootstrap";
 
 const FormularioTarea = () => {
-  const [tarea, setTarea] = useState('');
+  const [tarea, setTarea] = useState("");
   const [tareas, setTareas] = useState([]);
 
-  const handleSubmit = e =>{
+  const handleSubmit = (e) => {
     e.preventDefault();
     setTareas([...tareas, tarea]);
-    setTarea('')
-  }
+    setTarea("");
+  };
+
+  const borrarTarea = (nombreTarea) => {
+    const tareasFiltradas = tareas.filter((tarea) => tarea !== nombreTarea);
+    setTareas(tareasFiltradas);
+  };
 
   return (
     <section className="sectionForm mx-auto pt-5 border border-2 border-white px-5 rounded-3">
@@ -26,15 +31,15 @@ const FormularioTarea = () => {
             placeholder="Ingrese una tarea. Ej: tarea 1"
             minLength={3}
             maxLength={50}
-            onChange={(e)=> setTarea(e.target.value)}
+            onChange={(e) => setTarea(e.target.value)}
             value={tarea}
           />
-          <Button variant="success" className="px-5" type="submit" >
+          <Button variant="success" className="px-5" type="submit">
             Agregar
           </Button>
         </Form.Group>
       </Form>
-      <ListaTareas tareas={tareas}></ListaTareas>
+      <ListaTareas tareas={tareas} borrarTarea={borrarTarea}></ListaTareas>
     </section>
   );
 };
