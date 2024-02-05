@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ListaTareas from "./ListaTareas";
 import { Button, Form } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 const FormularioTarea = () => {
   const [tarea, setTarea] = useState("");
@@ -13,13 +14,46 @@ const FormularioTarea = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTareas([...tareas, tarea]);
+
+    if(tarea.trim !== ''){
+
+      Swal.fire({
+        icon: "success",
+        title: "La tarea se guardó con éxito",
+        showConfirmButton: true,
+      });
+      setTareas([...tareas, tarea]);
+    }else{
+      Swal.fire({
+        title: "La tarea no fue ingresada",
+        text: "Por favor, asegúrese de ingresar una tarea!",
+        icon: "warning",
+        confirmButtonColor: "#d64130",
+        confirmButtonText: "Ok!",
+      });
+    }
+  
     setTarea("");
   };
 
   const borrarTarea = (nombreTarea) => {
-    const tareasFiltradas = tareas.filter((tarea) => tarea !== nombreTarea);
-    setTareas(tareasFiltradas);
+    Swal.fire({
+      title: "¿Estas seguro de eliminar la tarea?",
+      text: "Una vez borrada la tarea no puede volver atrás",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Eliminar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const tareasFiltradas = tareas.filter(
+          (elementoTarea) => elementoTarea !== nombreTarea
+        );
+        setTareas(tareasFiltradas);
+      }
+    });
   };
 
   return (
@@ -38,6 +72,7 @@ const FormularioTarea = () => {
             maxLength={50}
             onChange={(e) => setTarea(e.target.value)}
             value={tarea}
+            required
           />
           <Button variant="success" className="px-5" type="submit">
             Agregar
