@@ -1,0 +1,19 @@
+body{
+  background-image: linear-gradient(160deg, #73c7f7 0%, #80D0C7 100%);
+}
+
+#root{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root .mainPage{
+  flex-grow: 1;
+}
+
+.sectionForm{
+  background-color: #123e57;
+  max-width: 650px;
+  min-height: 600px;
+}
