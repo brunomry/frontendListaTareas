@@ -1,10 +1,10 @@
 # Aplicación Web con React y Vite
 
-Ejercicio N°5 del Trabajo Práctico de React correspondiente al curso Desarrollador Full Stack dictado por RollingCodeSchool.
+Ejercicio N°2 del Trabajo Práctico de Backend correspondiente al curso Desarrollador Full Stack dictado por RollingCodeSchool. 
 
 ## Enunciado
 
-Consiste en crear una aplicación web que muestre una lista de tareas en pantalla y que se puedan almacenar en localStorage luego de ingresar una tarea en un input y presionar un botón.
+Consiste en desarrollar una aplicación web donde luego de ingresar una tarea y presionar un botón, se visualice una lista de tareas en pantalla, donde cada tarea se pueda ver en detalle, eliminar o modificar (CRUD)
 
 ## Prototipo 
 
@@ -14,7 +14,7 @@ Consiste en crear una aplicación web que muestre una lista de tareas en pantall
 
 La aplicación está desplegada en Netlify. Puedes acceder a ella haciendo clic en el siguiente enlace:
 
-[ejercicio 5](https://ejercicio5-bmr.netlify.app)
+[ejercicio 2](https://listatareas-bmr.netlify.app)
 
 ## Requisitos
 
@@ -24,11 +24,11 @@ La aplicación está desplegada en Netlify. Puedes acceder a ella haciendo clic 
 
 1. Clona este repositorio en tu máquina local a través de una terminal:
 
-  git clone <[url-del-repositorio](https://github.com/brunomry/ejercicio5_tp_react.git)>
+  git clone <[url-del-repositorio](https://github.com/brunomry/frontendListaTareas.git)>
 
 2. Navega al directorio del proyecto:
 
-  cd ejercicio5_tp_react
+  cd frontendListaTareas
 
 3. Instala las dependencias del proyecto:
 
