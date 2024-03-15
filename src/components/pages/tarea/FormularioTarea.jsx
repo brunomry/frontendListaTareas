@@ -1,5 +1,6 @@
 // import { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 // import Swal from "sweetalert2";
 // import Administrador from "../Administrador";
 
@@ -45,10 +46,10 @@ const FormularioTarea = () => {
           />
         </Form.Group>
         <div className="text-end d-flex gap-2 justify-content-end flex-wrap">
-          <Button variant="primary" className="px-5" type="submit">
+          <Button variant="primary" className="px-4" type="submit">
             Agregar
           </Button>
-          <Button variant="danger" className="px-5" type="submit">
+          <Button variant="danger" className="px-3" type="submit" as={Link} to="/">
             Cancelar
           </Button>
         </div>

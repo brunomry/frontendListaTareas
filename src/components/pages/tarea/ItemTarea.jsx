@@ -1,4 +1,5 @@
 import { Button, ListGroup } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const ItemTarea = () => {
   return (
@@ -7,10 +8,10 @@ const ItemTarea = () => {
         <p>Realizar ejercicio aa aa aaaaaaa aa aa aaaaaaaaaaa aaaaaaaaa</p>
       </div>
       <div className="d-md-flex text-center text-md-start justify-content-center align-items-center gap-2">
-        <Button variant="secondary" className="px-3" title="Ver más">
+        <Button variant="secondary" className="px-3" title="Ver más" as={Link} to={"/vertarea/:id"}> 
           <i className="bi bi-eye-fill"></i>
         </Button>{" "}
-        <Button variant="warning" className="px-3" title="Editar tarea">
+        <Button variant="warning" className="px-3" title="Editar tarea"  as={Link} to={`/editartarea/:id`}>
           <i className="bi bi-pencil-square"></i>
         </Button>{" "}
         <Button variant="danger" className="px-3" title="Borrar tarea">
