@@ -11,29 +11,19 @@
       "id": "2"
     },
     {
-      "id": "3452",
-      "nombreTarea": "tarea 5",
-      "descripcion": "hola soy la tarea 5"
-    },
-    {
-      "nombreTarea": "tarea 5",
-      "descripcion": "hola soy la tarea 5 asd ",
-      "id": "75e3"
-    },
-    {
-      "id": "5acd",
-      "nombreTarea": "tarea 5",
-      "descripcion": "hola soy la tarea 5"
-    },
-    {
-      "id": "9b03",
-      "nombreTarea": "tarea 5",
-      "descripcion": "hola soy la tarea 5"
-    },
-    {
       "id": "5cb8",
       "nombreTarea": "Caminata",
       "descripcion": "caminar media hora"
+    },
+    {
+      "id": "73e6",
+      "nombreTarea": "Ver ultima clase de rc",
+      "descripcion": "seguir codigo y anotar info importante"
+    },
+    {
+      "nombreTarea": "Workshop de rolling",
+      "descripcion": "Entrar a workshop de rolling code",
+      "id": "4f18"
     }
   ]
 }

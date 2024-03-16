@@ -1,10 +1,8 @@
-// import { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-// import Administrador from "../Administrador";
-import { crearTareaAPI, editarTareaAPI, obtenerRecetaAPI } from "../../../helpers/queries";
+import { crearTareaAPI, editarTareaAPI, obtenerTareaAPI } from "../../../helpers/queries.js";
 import { useEffect } from "react";
 
 const FormularioTarea = ({
@@ -26,13 +24,17 @@ const FormularioTarea = ({
   const { id } = useParams();
   const navegacion = useNavigate();
 
-  useEffect(()=>{
+  const tareaId = id ?? "";
+
+useEffect(() => {
+  if (tareaId !== "") {
     cargarDatosTarea();
-  }, [])
+  }
+}, [tareaId]);
 
   const cargarDatosTarea = async () => {
     try {
-      const respuesta = await obtenerRecetaAPI(id);
+      const respuesta = await obtenerTareaAPI(id);
 
       if(respuesta.status === 200){
         const tareaEncontrada = await respuesta.json();
@@ -72,7 +74,7 @@ const FormularioTarea = ({
           icon: "success",
         });
         reset();
-        navegacion("/");
+        // navegacion("/");
       } else {
         Swal.fire({
           title: "Ocurrió un error!",
@@ -160,7 +162,8 @@ const FormularioTarea = ({
         <div className="text-end d-flex gap-2 justify-content-end flex-wrap">
           <Button
             type="submit"
-            className={`${ocultar ? "d-none" : "btn btn-primary px-4"}`}
+            variant="primary"
+            className={`${ocultar ? "d-none" : "px-4"}`}
             disabled={deshabilitado}
           >
             Agregar

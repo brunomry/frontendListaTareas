@@ -12,8 +12,12 @@ const Administrador = () => {
   }, []);
 
   const consultarAPI = async () => {
-    const respuesta = await leerTareaAPI();
-    setTareas(respuesta);
+    try {
+      const respuesta = await leerTareaAPI();
+      setTareas(respuesta);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -32,9 +36,9 @@ const Administrador = () => {
         </div>
 
         <ListGroup className="sectionList mx-auto">
-          {
-            tareas.map(tarea => (<ItemTarea tarea={tarea} key={tarea.id} />))
-          }
+          {tareas.map((tarea) => (
+            <ItemTarea tarea={tarea} key={tarea.id} setTareas={setTareas} />
+          ))}
         </ListGroup>
       </section>
     </>

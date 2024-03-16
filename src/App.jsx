@@ -14,11 +14,10 @@ function App() {
       <Menu></Menu>
       <Routes>
         <Route
-          exact
           path="/crear"
           element={
             <FormularioTarea
-              editar={true}
+              editar={false}
               deshabilitado={false}
               boton="Cancelar"
               ocultar={false}
@@ -27,7 +26,6 @@ function App() {
           }
         ></Route>
         <Route
-          exact
           path="/editar/:id"
           element={
             <FormularioTarea
@@ -39,7 +37,6 @@ function App() {
           }
         ></Route>
         <Route
-          exact
           path="/verDetalle/:id"
           element={
             <FormularioTarea
