@@ -21,7 +21,7 @@ const FormularioTarea = () => {
       <p className="mb-4">
         Campo Obligatorio <span className="text-danger">*</span>
       </p>
-      <Form className="mb-5 sectionForm" onSubmit={handleSubmit(tareaValidada)}>
+      <Form className="mb-5 sectionForm" onSubmit={handleSubmit()}>
         <Form.Group
           className="mb-3 d-flex flex-column"
           controlId="exampleForm.ControlInput1"
