@@ -10,6 +10,15 @@ export const leerTareaAPI = async () => {
   }
 }
 
+export const obtenerRecetaAPI = async (id) =>{
+  try {
+    const respuesta = await fetch(URL_Tareas+"/"+id);
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export const crearTareaAPI = async (tareaNueva) => {
   try {
     const respuesta = await fetch(URL_Tareas, {
@@ -18,6 +27,21 @@ export const crearTareaAPI = async (tareaNueva) => {
         "Content-Type":"application/json",
       },
       body: JSON.stringify(tareaNueva)
+    });
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const editarTareaAPI = async (tareaModificada, id) => {
+  try {
+    const respuesta = await fetch(`${URL_Tareas}/${id}`,{
+      method: "PUT",
+      headers: {
+        "Content-Type":"application/json"
+      },
+      body: JSON.stringify(tareaModificada)
     });
     return respuesta;
   } catch (error) {

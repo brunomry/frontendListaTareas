@@ -4,7 +4,8 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 // import Administrador from "../Administrador";
-import { crearTareaAPI } from "../../../helpers/queries";
+import { crearTareaAPI, editarTareaAPI, obtenerRecetaAPI } from "../../../helpers/queries";
+import { useEffect } from "react";
 
 const FormularioTarea = ({
   editar,
@@ -19,30 +20,68 @@ const FormularioTarea = ({
     handleSubmit,
     formState: { errors },
     reset,
+    setValue
   } = useForm();
 
-const { id } = useParams();
-const navegacion = useNavigate();
+  const { id } = useParams();
+  const navegacion = useNavigate();
 
-const tareaValidada = async (tarea) => {
-  const respuesta = await crearTareaAPI(tarea);
+  useEffect(()=>{
+    cargarDatosTarea();
+  }, [])
 
-  if(respuesta.status === 201){
-    Swal.fire({
-      title: "Tarea registrada!",
-      text: `La tarea "${tarea.nombreTarea}" fue registrada exitosamente`,
-      icon: "success",
-    });
-    reset();
-    navegacion("/");
-  } else {
-    Swal.fire({
-      title: "Ocurrió un error!",
-      text: `La tarea "${tarea.nombreTarea}" no pudo ser registrada. Intente esta operación en unos minutos.`,
-      icon: "error",
-    });
+  const cargarDatosTarea = async () => {
+    try {
+      const respuesta = await obtenerRecetaAPI(id);
+
+      if(respuesta.status === 200){
+        const tareaEncontrada = await respuesta.json();
+        setValue("nombreTarea", tareaEncontrada.nombreTarea);
+        setValue("descripcion", tareaEncontrada.descripcion);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
-}
+
+  const tareaValidada = async (tarea) => {
+    if (editar) {
+      const respuesta = await editarTareaAPI(tarea,id);
+
+      if(respuesta.status === 200){
+        Swal.fire({
+          title: "Tarea modificada!",
+          text: `La tarea "${tarea.nombreTarea}" fue modificada exitosamente`,
+          icon: "success",
+        });
+        navegacion("/");
+      }else{
+        Swal.fire({
+          title: "Ocurrió un error!",
+          text: `La tarea "${tarea.nombreTarea}" no pudo ser modificada. Intente esta operación en unos minutos.`,
+          icon: "error",
+        });
+      }
+    } else {
+      const respuesta = await crearTareaAPI(tarea);
+
+      if (respuesta.status === 201) {
+        Swal.fire({
+          title: "Tarea registrada!",
+          text: `La tarea "${tarea.nombreTarea}" fue registrada exitosamente`,
+          icon: "success",
+        });
+        reset();
+        navegacion("/");
+      } else {
+        Swal.fire({
+          title: "Ocurrió un error!",
+          text: `La tarea "${tarea.nombreTarea}" no pudo ser registrada. Intente esta operación en unos minutos.`,
+          icon: "error",
+        });
+      }
+    }
+  };
 
   return (
     <section className="mainSection py-5 mx-lg-auto rounded-2 px-2 px-sm-4 px-lg-5">
@@ -127,7 +166,9 @@ const tareaValidada = async (tarea) => {
             Agregar
           </Button>
           <Button
-            className={`btn ${verDetalle ? "btn-secondary px-5" : "btn-danger"}`}
+            className={`btn ${
+              verDetalle ? "btn-secondary px-5" : "btn-danger"
+            }`}
             as={Link}
             to="/"
           >
