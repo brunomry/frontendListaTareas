@@ -6,6 +6,12 @@ Ejercicio N°2 del Trabajo Práctico de Backend correspondiente al curso Desarro
 
 Consiste en desarrollar una aplicación web donde luego de ingresar una tarea y presionar un botón, se visualice una lista de tareas en pantalla, donde cada tarea se pueda ver en detalle, eliminar o modificar (CRUD)
 
+## Integración con proyecto de Backend
+
+Este proyecto de Frontend se integró a su proyecto Backend correspondiente donde se utilizó la base de datos no relacional de MongoDB para almacenar los datos de la lista de tareas.
+
+#### Repositorio Backend: [backendListaTareas](https://github.com/brunomry/backendListaTareas.git)
+
 ## Prototipo 
 
 <img src="./prototipo.png">
