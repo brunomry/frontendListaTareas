@@ -40,7 +40,10 @@ La aplicación está desplegada en Netlify. Puedes acceder a ella haciendo clic 
 - Vite
 - JavaScript
 - React-Bootstrap
-- Bootstrap
+- Bootstrap5
+- Bootstrap Icons
+- React-router-dom
+- React-hook-form
 - Webpack
 - CSS3
 - SweetAlert2
