@@ -8,10 +8,10 @@ const ItemTarea = ({tarea}) => {
         <p>{tarea.nombreTarea}</p>
       </div>
       <div className="d-md-flex text-center text-md-start justify-content-center align-items-center gap-2">
-        <Button variant="secondary" className="px-3" title="Ver más" as={Link} to={"/vertarea/:id"}> 
+        <Button variant="secondary" className="px-3" title="Ver más" as={Link} to={`/verDetalle/${tarea.id}`}> 
           <i className="bi bi-eye-fill"></i>
         </Button>{" "}
-        <Button variant="warning" className="px-3" title="Editar tarea"  as={Link} to={`/editartarea/:id`}>
+        <Button variant="warning" className="px-3" title="Editar tarea"  as={Link} to={`/editar/${tarea.id}`}>
           <i className="bi bi-pencil-square"></i>
         </Button>{" "}
         <Button variant="danger" className="px-3" title="Borrar tarea">

@@ -15,21 +15,44 @@ function App() {
       <Routes>
         <Route
           exact
-          path="/creartarea"
-          element={<FormularioTarea></FormularioTarea>}
+          path="/crear"
+          element={
+            <FormularioTarea
+              editar={true}
+              deshabilitado={false}
+              boton="Cancelar"
+              ocultar={false}
+              titulo="Nueva tarea"
+            ></FormularioTarea>
+          }
         ></Route>
         <Route
           exact
-          path="/editartarea/:id"
-          element={<FormularioTarea></FormularioTarea>}
+          path="/editar/:id"
+          element={
+            <FormularioTarea
+              editar={true}
+              boton="Cancelar"
+              ocultar={false}
+              titulo="Editar receta"
+            ></FormularioTarea>
+          }
         ></Route>
         <Route
           exact
-          path="/vertarea/:id"
-          element={<FormularioTarea></FormularioTarea>}
+          path="/verDetalle/:id"
+          element={
+            <FormularioTarea
+              deshabilitado={true}
+              boton="Volver"
+              ocultar={true}
+              titulo="Detalle de la tarea"
+              verDetalle={true}
+            ></FormularioTarea>
+          }
         ></Route>
         <Route exact path="/" element={<Administrador></Administrador>}></Route>
-        <Route path="*" element={<Error404></Error404>}></Route>       
+        <Route path="*" element={<Error404></Error404>}></Route>
       </Routes>
       <Footer></Footer>
     </BrowserRouter>

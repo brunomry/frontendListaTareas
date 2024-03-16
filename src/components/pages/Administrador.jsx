@@ -24,7 +24,7 @@ const Administrador = () => {
           <Button
             className="btn btn-primary"
             title="Agregar tarea"
-            to="/creartarea"
+            to="/crear"
             as={Link}
           >
             <i className="bi bi-file-earmark-plus fs-5"></i>
