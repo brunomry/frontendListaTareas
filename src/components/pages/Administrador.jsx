@@ -14,7 +14,7 @@ const Administrador = () => {
   const consultarAPI = async () => {
     try {
       const respuesta = await leerTareaAPI();
-      setTareas(respuesta);
+      setTareas(respuesta.tareas);
     } catch (error) {
       console.log(error);
     }
@@ -22,7 +22,7 @@ const Administrador = () => {
 
   return (
     <>
-      <section className="container mainSection px-2 px-md-5">
+      <section className="container mainSection px-2 px-lg-5">
         <div className="d-flex flex-column gap-2 flex-sm-row justify-content-around align-items-center my-5 ">
           <h1 className="">Lista de tareas</h1>
           <Button
@@ -37,7 +37,7 @@ const Administrador = () => {
 
         <ListGroup className="sectionList mx-auto">
           {tareas.map((tarea) => (
-            <ItemTarea tarea={tarea} key={tarea.id} setTareas={setTareas} />
+            <ItemTarea tarea={tarea} key={tarea._id} setTareas={setTareas} />
           ))}
         </ListGroup>
       </section>

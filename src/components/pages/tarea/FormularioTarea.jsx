@@ -74,7 +74,7 @@ useEffect(() => {
           icon: "success",
         });
         reset();
-        // navegacion("/");
+        navegacion("/");
       } else {
         Swal.fire({
           title: "Ocurrió un error!",
@@ -179,7 +179,6 @@ useEffect(() => {
           </Button>
         </div>
       </Form>
-      {/* <Administrador tareas={tareas} borrarTarea={borrarTarea}></Administrador> */}
     </section>
   );
 };

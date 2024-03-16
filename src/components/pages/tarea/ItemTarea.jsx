@@ -16,7 +16,7 @@ const ItemTarea = ({tarea, setTareas}) => {
       cancelButtonText: 'Cancelar',
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const respuesta = await borrarTareaAPI(tarea.id);
+        const respuesta = await borrarTareaAPI(tarea._id);
         if (respuesta.status === 200) {
           Swal.fire({
             title: 'Tarea eliminada!',
@@ -24,7 +24,7 @@ const ItemTarea = ({tarea, setTareas}) => {
             icon: 'success',
           });
           const listaTareas = await leerTareaAPI();
-          setTareas(listaTareas);
+          setTareas(listaTareas.tareas);
         } else {
           Swal.fire({
             title: 'Ocurrió un error!',
@@ -42,10 +42,10 @@ const ItemTarea = ({tarea, setTareas}) => {
         <p>{tarea.nombreTarea}</p>
       </div>
       <div className="d-md-flex text-center text-md-start justify-content-center align-items-center gap-2">
-        <Button variant="secondary" className="px-3" title="Ver más" as={Link} to={`/verDetalle/${tarea.id}`}> 
+        <Button variant="secondary" className="px-3" title="Ver más" as={Link} to={`/verDetalle/${tarea._id}`}> 
           <i className="bi bi-eye-fill"></i>
         </Button>{" "}
-        <Button variant="warning" className="px-3" title="Editar tarea"  as={Link} to={`/editar/${tarea.id}`}>
+        <Button variant="warning" className="px-3" title="Editar tarea"  as={Link} to={`/editar/${tarea._id}`}>
           <i className="bi bi-pencil-square"></i>
         </Button>{" "}
         <Button variant="danger" className="px-3" title="Borrar tarea" onClick={borrarTarea}>
